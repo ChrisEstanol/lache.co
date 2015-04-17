@@ -1,0 +1,9 @@
+<div id="suenos" class="transitions-enabled">
+  <% @suenos.each do |sueno| %>
+    <div class="box" >
+      <%= image_tag sueno.image.url(:medium) %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'New sueno', new_diario_path %>

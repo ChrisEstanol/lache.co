@@ -1,0 +1,25 @@
+`<%= form_for(@diario) do |f| %>
+  <% if @diario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@diario.errors.count, "error") %> prohibited this diario from being saved:</h2>
+
+      <ul>
+      <% @diario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

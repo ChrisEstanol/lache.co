@@ -1,14 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LacheCo</title>
+  <title>LacheBlog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div id="wrapper">
+
+        <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+      <div class="sidebar-content">
+
+        <div class="logo"></div>
+        <!-- <img class="img-round" src="{{ site.baseurl }}/img/logo4.png" alt="Post Sample Image"> -->
+
+        <p>Hi, I’m Christophe Estanol and I’m a Ruby on Rails Developer. Learn more about me.
+
+        Have a look around and please don’t hesitate to contact me with any comments, questions, or just to say hello!
+        </p>
+        <ul class="list-inline text-center">
+          <li>
+              <a href="https://facebook.com/">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-facebook fa-stack-1x"></i>
+                  </span>
+              </a>
+          </li>
+
+          <li>
+              <a href="https://twitter.com/">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-twitter fa-stack-1x"></i>
+                  </span>
+              </a>
+          </li>
+
+          <li>
+              <a href="https://pinterest.com/">
+                  <span class="fa-stack fa-lg">
+                      <i class="fa fa-pinterest fa-stack-1x"></i>
+                  </span>
+              </a>
+          </li>
+
+      </ul>
+
+      <% if user_signed_in? %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+           <% else %>
+
+               <%= link_to "Log in", new_user_session_path, class: "" %>
+
+        <% end %>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+<!-- Page Header -->
+<div id="page-content-wrapper">
+<header class="intro-header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+        <div class="site-heading">
+
+         </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container-fluid">
+  <div class="row">
+
+  <%= yield %>
+
+  </div>
+</div>
+</div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+
 
 </body>
 </html>

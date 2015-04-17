@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @sueno.nombre %>
+</p>
+
+<%= image_tag @sueno.image.url(:medium) %>
+
+<%= link_to 'Edit', edit_sueno_path(@sueno) %> |
+<%= link_to 'Back', suenos_path %>

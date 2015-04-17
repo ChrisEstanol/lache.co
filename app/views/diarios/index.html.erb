@@ -1,0 +1,11 @@
+<div id="diarios" class="transitions-enabled infinite-scroll">
+  <% @diarios.each do |diario| %>
+    <div class="box" >
+      <%= image_tag diario.image.url(:medium) %>
+    </div>
+  <% end %>
+</div>
+
+<nav id="page-nav">
+  <a href="../pages/2.html"></a>
+</nav>

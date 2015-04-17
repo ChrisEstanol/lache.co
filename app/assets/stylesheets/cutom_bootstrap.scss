@@ -1,0 +1,22 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+.alert {
+  position: relative;
+  z-index: 999999;
+  margin-bottom: 0;
+}
+
+#flash_alert,
+#flash_notice {
+  text-align: center;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}

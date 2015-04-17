@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @diario.nombre %>
+</p>
+
+<%= image_tag @diario.image.url(:medium) %>
+
+<%= link_to 'Edit', edit_diario_path(@diario) %> |
+<%= link_to 'Back', diarios_path %>

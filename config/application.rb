@@ -22,5 +22,17 @@ module LacheCo
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Rails generator cleaned-up settings
+    config.generators do |g|
+      g.assets            false
+      g.helper            false
+      g.test_framework    nil
+      g.jbuilder          false
+    end
+
+    #Devise config
+    config.assets.initialize_on_precompile = false
+
   end
 end
