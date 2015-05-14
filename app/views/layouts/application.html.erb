@@ -61,35 +61,85 @@
   <!-- /#sidebar-wrapper -->
 <!-- Page Header -->
 <div id="page-content-wrapper">
-<header class="intro-header">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
-        <div class="site-heading">
 
-         </div>
+  <header class="intro-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+          <div class="site-heading">
+
+           </div>
+        </div>
       </div>
     </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container-fluid">
+    <div class="row">
+
+    <%= yield %>
+
+    </div>
   </div>
-</header>
 
-<!-- Main Content -->
-<div class="container-fluid">
-  <div class="row">
-
-  <%= yield %>
-
-  </div>
-</div>
 </div>
         <!-- /#page-content-wrapper -->
 
-    </div>
+
     <!-- /#wrapper -->
   <%= render "devise/modal/login" %>
+</div>
+<script type="text/javascript">
 
-<script type="text/javascript"> $(function ()
+$(document).on('ready page:load', function () {
 
-{ $("#myModal").modal({show:false }); </script>
+  $(function ()
+    { $("#myModal").modal({show:false }
+  );
+
+  function adjustModalMaxHeightAndPosition(){
+    $('.modal').each(function(){
+      if($(this).hasClass('in') === false){
+        $(this).show();
+      }
+      var contentHeight = $(window).height() - 60;
+      var headerHeight = $(this).find('.modal-header').outerHeight() || 2;
+      var footerHeight = $(this).find('.modal-footer').outerHeight() || 2;
+
+      $(this).find('.modal-content').css({
+        'max-height': function () {
+          return contentHeight;
+        }
+      });
+
+      $(this).find('.modal-body').css({
+        'max-height': function () {
+          return contentHeight - (headerHeight + footerHeight);
+        }
+      });
+
+      $(this).find('.modal-dialog').addClass('modal-dialog-center').css({
+        'margin-top': function () {
+          return -($(this).outerHeight() / 2);
+        },
+        'margin-left': function () {
+          return -($(this).outerWidth() / 2);
+        }
+      });
+      if($(this).hasClass('in') === false){
+        $(this).hide();
+      }
+    });
+  }
+  if ($(window).height() >= 320){
+    $(window).resize(adjustModalMaxHeightAndPosition).trigger("resize");
+  }
+});
+
+
+
+
+</script>
 </body>
 </html>

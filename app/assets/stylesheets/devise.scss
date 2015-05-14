@@ -1,49 +1,31 @@
 @import "bootstrap";
 
-
-// DEVISE styling
-  .devise-body {
-    background-color: lightslategray;
-  }
-
-  .logo-devise {
-    background: url("https://s3.amazonaws.com/sic2co/images/sic2-logo-devise.png") no-repeat;
-    width: 299px;
-    height: 113px;
-    background-size: 100%;
-    display: block;
-    margin: 60px auto 30px;
-  }
-
-  .well-devise {
-    max-width: 400px;
-    margin: 50px auto;
-    max-width: 400px;
-    background-color: #fff;
-    color: white;
-  }
-
-  .well-devise .form-control {
-    padding: 20px;
-    font-size: 15px;
-    border-radius: 3px;
-  }
-
-  .well-devise h1 {
-    color: grey;
-    text-align: center;
-  }
-
-  .well-devise a {
-    color: grey;
-    font-size: 14px;
-  }
   // Generated with scaffold, customize styling
   .field_with_errors input{
   border: 2px solid #a94442;
   }
-  //
 
-  #flash_alert {
-    text-align: center;
+/* ==========================================================================
+   Devise modal
+   ========================================================================== */
+
+  .modal-dialog-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
   }
+
+  .modal-body {
+      overflow-y: auto;
+  }
+  .modal-footer {
+      margin-top: 0;
+  }
+
+  @media (max-width: 767px) {
+    .modal-dialog-center {
+      width: 100%;
+    }
+  }
+
